@@ -10,8 +10,13 @@ import SwiftUI
 struct HomeView: View {
     @State var seaarch: String = ""
     var datasource: [StationData] = [
-        StationData(stationIcon: .camera, stationLocation: "Hägerstensåsen", stationCode: "23", status: .green, trains: [
+        StationData(isStarred: true, location: "Hägerstensåsen", from: "Tag mot fraugen", stationIcon: .camera, stationCode: "23", status: .red, trains: [
             TrainData(name: "Centrum", number: "14", time: "13 min"),
+            TrainData(name: "Mørby Centrum", number: "14", time: "13 min"),
+        ]),
+        StationData(isStarred: false, location: "Hägerstensåsen", from: "Tag mot fraugen", stationIcon: .camera, stationCode: "25", status: .green, trains: [
+            TrainData(name: "Centrum", number: "14", time: "13 min"),
+            TrainData(name: "Mørby Centrum", number: "14", time: "13 min"),
             TrainData(name: "Mørby Centrum", number: "14", time: "13 min"),
         ]),
     ]
@@ -30,13 +35,60 @@ struct HomeView: View {
     private var listingView: some View {
         ForEach(datasource, id: \.self) { source in
             Section(header: Header(data: source)) {
+                ListCell(data: source)
+            }
+        }
+    }
+    
+    struct Header: View {
+        let data: StationData
+        
+        var body: some View {
+            HStack {
+                HStack {
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .renderingMode(.template)
+                        .frame(width: 16, height: 16)
+                        .foregroundColor(data.status.color)
+                    
+                    Text(data.status.rawValue)
+                        .font(AppFont.proRegular16)
+                        .foregroundColor(data.status.color)
+                    
+                }
+                
+                Spacer()
+                
+                Text(data.location)
+                    .font(AppFont.proRegular18)
+                
+                Spacer()
+                
+                
+                Image(systemName: data.isStarred ? "star.fill" : "star")
+                    .resizable()
+                    .renderingMode(.template)
+                    .frame(width: 16, height: 16)
+                    .foregroundColor(data.isStarred ? AppColor.orange : AppColor.gray)
+                
+            }
+        }
+    }
+    
+    struct ListCell: View {
+        let data: StationData
+        var body: some View {
+            VStack {
+                CellHeader(data: data)
+                
                 ZStack {
                     DotBackground()
                     
                     VStack {
-                        ForEach(source.trains, id: \.self) { train in
+                        ForEach(data.trains, id: \.self) { train in
                             Marquee {
-                                ListCell(data: train)
+                                TrainListCell(data: train)
                             }
                             .frame(height: 30)
                         }
@@ -44,6 +96,7 @@ struct HomeView: View {
                     .padding()
                 }
             }
+            .padding(.bottom, 40)
         }
     }
     
@@ -65,7 +118,7 @@ struct HomeView: View {
         }
     }
     
-    struct Header: View {
+    struct CellHeader: View {
         let data: StationData
         
         var body: some View {
@@ -96,7 +149,7 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    Text(data.stationLocation)
+                    Text(data.from)
                         .font(AppFont.proRegular18)
                     
                     Spacer()
@@ -127,7 +180,7 @@ struct HomeView: View {
         }
     }
     
-    struct ListCell: View {
+    struct TrainListCell: View {
         let data: TrainData
         
         var body: some View {
@@ -159,10 +212,10 @@ extension HomeView {
     }
 }
 
-enum StatusType {
-    case red
-    case green
-    case blue
+enum StatusType: String {
+    case red = "Red"
+    case green = "Green"
+    case blue = "Blue"
     
     var color: Color {
         switch self {
@@ -181,8 +234,10 @@ enum IconType: String {
 }
 
 struct StationData: Hashable {
+    var isStarred: Bool
+    var location: String
+    var from: String
     var stationIcon: IconType
-    var stationLocation: String
     var stationCode: String
     var status: StatusType
     var trains: [TrainData]
