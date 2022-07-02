@@ -8,31 +8,66 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    @State var seaarch: String = ""
     var datasource: [StationData] = [
         StationData(stationIcon: .camera, stationLocation: "Hägerstensåsen", stationCode: "23", status: .green, trains: [
             TrainData(name: "Mørby Centrum", number: "14", time: "13 min"),
             TrainData(name: "Mørby Centrum", number: "14", time: "13 min"),
-            TrainData(name: "Mørby Centrum", number: "14", time: "13 min")
         ]),
-        StationData(stationIcon: .camera, stationLocation: "Hägerstensåsen", stationCode: "23", status: .green, trains: [
-            TrainData(name: "Mørby Centrum", number: "14", time: "13 min"),
-            TrainData(name: "Mørby Centrum", number: "14", time: "13 min"),
-            TrainData(name: "Mørby Centrum", number: "14", time: "13 min")
-        ])
     ]
     
     var body: some View {
-        listingView
-            .padding()
-            .navigationTitle(Constants.title)
+        ScrollView {
+            listingView
+                .searchable(text: $seaarch)
+                .padding()
+        }
+        .navigationTitle(Constants.title)
     }
     
     private var listingView: some View {
-        List(datasource, id: \.self) { source in
-            Section(header: Text(source.stationLocation)) {
-                List(source.trains, id: \.self) { train in
-                    Text("\(train.name) by \(train.number)")
+        ForEach(datasource, id: \.self) { source in
+            Section(header: Header(data: source)) {
+                ForEach(source.trains, id: \.self) { train in
+                    Text(train.name)
+                }
+            }
+        }
+    }
+    
+    struct Header: View {
+        let data: StationData
+        
+        var body: some View {
+            HStack {
+                HStack {
+                    Rectangle()
+                        .frame(width: 10)
+                        .foregroundColor(.orange)
+                    
+                    VStack {
+                        Text(Constants.code)
+                        Text(data.stationCode)
+                    }
+                    .background(.gray)
+                }
+                
+                Spacer()
+                
+                Text(data.stationLocation)
+                
+                Spacer()
+                
+                HStack {
+                    VStack {
+                        Image(systemName: data.stationIcon.rawValue)
+                        
+                    }
+                    .background(.gray)
+                    
+                    Rectangle()
+                        .frame(width: 10)
+                        .foregroundColor(.orange)
                 }
             }
         }
@@ -42,17 +77,29 @@ struct HomeView: View {
 extension HomeView {
     struct Constants {
         static let title = "Start"
+        static let code = "Code"
     }
 }
 
 enum StatusType {
     case red
     case green
-    case bluw
+    case blue
+    
+    var color: Color {
+        switch self {
+        case .red:
+            return .red
+        case .green:
+            return .green
+        case .blue:
+            return .blue
+        }
+    }
 }
 
-enum IconType {
-    case camera
+enum IconType: String {
+    case camera = "camera.circle"
 }
 
 struct StationData: Hashable {
