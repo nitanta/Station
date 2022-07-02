@@ -11,10 +11,7 @@ import SwiftUI
 struct StationmasterApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationView {
                 TabedView()
-            }
-            .navigationViewStyle(.stack)
         }
     }
 }

@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ModeView: View {
     var body: some View {
-        Text(Constants.title)
-            .navigationTitle(Constants.title)
+        NavigationView {
+            Text(Constants.title)
+                .navigationTitle(Constants.title)
+        }
     }
 }
 

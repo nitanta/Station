@@ -18,6 +18,7 @@
 		50AA71A2286F5B6000BEE24A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA71A1286F5B6000BEE24A /* HomeView.swift */; };
 		50AA71A5286F5BE200BEE24A /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA71A4286F5BE200BEE24A /* AppColor.swift */; };
 		50AA71A7286F5C9900BEE24A /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA71A6286F5C9900BEE24A /* AppFont.swift */; };
+		50CF860F287003D1000B2373 /* Marquee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF860E287003D1000B2373 /* Marquee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		50AA71A1286F5B6000BEE24A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		50AA71A4286F5BE200BEE24A /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		50AA71A6286F5C9900BEE24A /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
+		50CF860E287003D1000B2373 /* Marquee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marquee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		50AA7191286F599500BEE24A /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				50CF860D287003C5000B2373 /* Components */,
 				50AA7194286F59D700BEE24A /* About */,
 				50AA7197286F5A9A00BEE24A /* Route */,
 				50AA7195286F5A5400BEE24A /* Card */,
@@ -150,6 +153,14 @@
 				50AA71A6286F5C9900BEE24A /* AppFont.swift */,
 			);
 			path = Design;
+			sourceTree = "<group>";
+		};
+		50CF860D287003C5000B2373 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				50CF860E287003D1000B2373 /* Marquee.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +235,7 @@
 			files = (
 				50AA7186286F583000BEE24A /* TabedView.swift in Sources */,
 				50AA71A5286F5BE200BEE24A /* AppColor.swift in Sources */,
+				50CF860F287003D1000B2373 /* Marquee.swift in Sources */,
 				50AA71A7286F5C9900BEE24A /* AppFont.swift in Sources */,
 				50AA71A2286F5B6000BEE24A /* HomeView.swift in Sources */,
 				50AA719B286F5AE500BEE24A /* ModeView.swift in Sources */,

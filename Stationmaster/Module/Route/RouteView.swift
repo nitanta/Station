@@ -9,8 +9,10 @@ import SwiftUI
 
 struct RouteView: View {
     var body: some View {
-        Text(Constants.title)
-            .navigationTitle(Constants.title)
+        NavigationView {
+            Text(Constants.title)
+                .navigationTitle(Constants.title)
+        }
     }
 }
 

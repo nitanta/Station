@@ -32,7 +32,7 @@ struct AppColor {
     enum Components {
         
         enum TabBar {
-            @Theme(light: AppColor.blue, dark: AppColor.blue)
+            @Theme(light: AppColor.orange, dark: AppColor.orange)
             static var tint: Color
         }
         
@@ -56,7 +56,17 @@ struct AppColor {
     @Theme(light: .blue, dark: .blue)
     static var blue: Color
     
+    @Theme(light: .orange, dark: .orange)
+    static var orange: Color
     
+    @Theme(light: .black, dark: .black)
+    static var black: Color
+    
+    @Theme(light: .white, dark: .white)
+    static var white: Color
+    
+    @Theme(light: .gray, dark: .gray)
+    static var gray: Color
 }
 
 extension Color {
