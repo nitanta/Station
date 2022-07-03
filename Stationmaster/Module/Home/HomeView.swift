@@ -10,16 +10,35 @@ import SwiftUI
 struct HomeView: View {
     @State var seaarch: String = ""
     var datasource: [StationData] = [
-        StationData(isStarred: true, location: "Hägerstensåsen", from: "Tag mot fraugen", stationIcon: .camera, stationCode: "23", status: .red, trains: [
-            TrainData(name: "Centrum", number: "14", time: "13 min"),
-            TrainData(name: "Mørby Centrum", number: "14", time: "13 min"),
+        StationData(name: "Hägerstensåsen", isStarred: true, message: "Elevator under maintainance", areaType: .red, destinations: [
+            Board(fromName: "Fruängen", toName: "T-Centralen - Mörby centrum", platfrom: "1", icon: .camera, trains: [
+                TrainData(name: "Mörby centrum", number: "14", time: "12:25 PM", arrivingIn: "5 mins"),
+                TrainData(name: "Mörby centrum", number: "14", time: "12:30 PM", arrivingIn: "10 mins"),
+                TrainData(name: "Mörby centrum", number: "14", time: "12:35 PM", arrivingIn: "15 mins")
+            ]),
+            Board(fromName: "T-Centralen - Mörby centrum", toName: "Fruängen", platfrom: "2", icon: .camera, trains: [
+                TrainData(name: "Fruängen", number: "14", time: "12:30 PM", arrivingIn: "10 mins"),
+                TrainData(name: "Fruängen", number: "14", time: "12:40 PM", arrivingIn: "20 mins"),
+                TrainData(name: "Fruängen", number: "14", time: "12:50 PM", arrivingIn: "30 mins")
+            ])
         ]),
-        StationData(isStarred: false, location: "Hägerstensåsen", from: "Tag mot fraugen", stationIcon: .camera, stationCode: "25", status: .green, trains: [
-            TrainData(name: "Centrum", number: "14", time: "13 min"),
-            TrainData(name: "Mørby Centrum", number: "14", time: "13 min"),
-            TrainData(name: "Mørby Centrum", number: "14", time: "13 min"),
-        ]),
+        
+        StationData(name: "Stureby", isStarred: true, message: "Lift is not working nicely", areaType: .green, destinations: [
+            Board(fromName: "Hagsätra", toName: "T-Centralen - Hässelby strand", platfrom: "1", icon: .camera, trains: [
+                TrainData(name: "Hässelby strand", number: "19", time: "12:30 PM", arrivingIn: "10 mins"),
+                TrainData(name: "Hässelby strand", number: "19", time: "12:40 PM", arrivingIn: "20 mins"),
+                TrainData(name: "Hässelby strand", number: "19", time: "12:50 PM", arrivingIn: "30 mins")
+            ]),
+            Board(fromName: "T-Centralen - Hässelby strand", toName: "Hagsätra", platfrom: "2", icon: .camera, trains: [
+                TrainData(name: "Hagsätra", number: "19", time: "12:35 PM", arrivingIn: "15 mins"),
+                TrainData(name: "Hagsätra", number: "19", time: "12:45 PM", arrivingIn: "25 mins"),
+                TrainData(name: "Hagsätra", number: "19", time: "12:55 PM", arrivingIn: "35 mins")
+            ])
+        ])
+        
     ]
+    
+    
     
     var body: some View {
         NavigationView {
@@ -35,7 +54,9 @@ struct HomeView: View {
     private var listingView: some View {
         ForEach(datasource, id: \.self) { source in
             Section(header: Header(data: source)) {
-                ListCell(data: source)
+                ForEach(source.destinations, id: \.self) { board in
+                    ListCell(data: board, areaType: source.areaType, message: source.message)
+                }
             }
         }
     }
@@ -50,17 +71,17 @@ struct HomeView: View {
                         .resizable()
                         .renderingMode(.template)
                         .frame(width: 16, height: 16)
-                        .foregroundColor(data.status.color)
+                        .foregroundColor(data.areaType.color)
                     
-                    Text(data.status.rawValue)
+                    Text(data.areaType.rawValue)
                         .font(AppFont.proRegular16)
-                        .foregroundColor(data.status.color)
+                        .foregroundColor(data.areaType.color)
                     
                 }
                 
                 Spacer()
                 
-                Text(data.location)
+                Text(data.name)
                     .font(AppFont.proRegular18)
                 
                 Spacer()
@@ -77,31 +98,67 @@ struct HomeView: View {
     }
     
     struct ListCell: View {
-        let data: StationData
+        let data: Board
+        let areaType: AreaType
+        let message: String
+        
+        @State var duration: Double = 5.0
+        @State var autoreverses: Bool = false
+
         var body: some View {
             VStack {
-                CellHeader(data: data)
+                CellHeader(data: data, areaType: areaType)
                 
                 ZStack {
                     DotBackground()
                     
                     VStack {
-                        ForEach(data.trains, id: \.self) { train in
-                            Marquee {
-                                TrainListCell(data: train)
-                            }
-                            .frame(height: 30)
+                        if let row = constructFirstRow() {
+                            TrainFirstCell(data: row)
+                                .frame(height: 26)
                         }
+                        
+                        Marquee {
+                            TrainSecondCell(data: constructSecondRow())
+                        }
+                        .marqueeDuration(duration)
+                        .marqueeAutoreverses(autoreverses)
+                        .frame(height: 26)
                     }
                     .padding()
                 }
             }
             .padding(.bottom, 40)
         }
+        
+        func constructFirstRow() -> TrainData? {
+            if let firstTrain = data.trains.first {
+                return firstTrain
+            }
+            return nil
+        }
+        
+        func constructSecondRow() -> String {
+            let trainData = data.trains
+            
+            let remainigTrains = Array(trainData.dropFirst())
+            
+            var secondRowString: String = ""
+            
+            remainigTrains.forEach { data in
+                secondRowString += "\(data.number) \t \(data.name) \t \(data.arrivingIn) \t"
+            }
+            if !message.isEmpty {
+                secondRowString += "\t \(message)"
+            }
+            
+            return secondRowString
+        }
+                
     }
     
     struct DotBackground: View {
-        let rows = [GridItem](repeating: GridItem(.flexible()), count: 6)
+        let rows = [GridItem](repeating: GridItem(.flexible()), count: 1)
         
         var body: some View {
             GeometryReader { proxy in
@@ -113,13 +170,14 @@ struct HomeView: View {
                             .foregroundColor(.gray)
                     }
                 })
-                .background(.black.opacity(0.8))
             }
+            .background(.black.opacity(0.8))
         }
     }
     
     struct CellHeader: View {
-        let data: StationData
+        let data: Board
+        let areaType: AreaType
         
         var body: some View {
             VStack(spacing: 4) {
@@ -131,14 +189,14 @@ struct HomeView: View {
                     HStack(spacing: 4) {
                         Rectangle()
                             .frame(width: 10)
-                            .foregroundColor(.orange)
+                            .foregroundColor(areaType.color)
                         
                         VStack {
-                            Text(Constants.code)
+                            Text(Constants.track)
                                 .font(AppFont.proRegular10)
                                 .foregroundColor(AppColor.white)
                             
-                            Text(data.stationCode)
+                            Text(data.platfrom)
                                 .font(AppFont.proRegular14)
                                 .foregroundColor(AppColor.white)
 
@@ -149,7 +207,7 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    Text(data.from)
+                    Text(Constants.title + data.toName)
                         .font(AppFont.proRegular18)
                     
                     Spacer()
@@ -157,7 +215,7 @@ struct HomeView: View {
                     HStack(spacing: 4) {
                         VStack {
                             
-                            Image(data.stationIcon.rawValue)
+                            Image(data.icon.rawValue)
                                 .resizable()
                                 .renderingMode(.template)
                                 .frame(width: 24, height: 24)
@@ -169,20 +227,32 @@ struct HomeView: View {
 
                         Rectangle()
                             .frame(width: 10)
-                            .foregroundColor(.orange)
+                            .foregroundColor(areaType.color)
                     }
                 }
             }
         }
         
         struct Constants {
-            static let code = "Code"
+            static let track = "Spår"
+            static let title = "Tåg mot "
         }
     }
     
-    struct TrainListCell: View {
-        let data: TrainData
+    struct TrainSecondCell: View {
+        let data: String
         
+        var body: some View {
+            HStack {
+                Text(data)
+                    .font(AppFont.proSemibold24)
+                    .foregroundColor(.orange)
+            }
+        }
+    }
+    
+    struct TrainFirstCell: View {
+        let data: TrainData
         var body: some View {
             HStack {
                 Text(data.number)
@@ -197,22 +267,23 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Text(data.time)
+                Text(data.arrivingIn)
                     .font(AppFont.proSemibold24)
                     .foregroundColor(.orange)
             }
         }
     }
+    
+    
 }
 
 extension HomeView {
     struct Constants {
         static let title = "Start"
-        static let code = "Code"
     }
 }
 
-enum StatusType: String {
+enum AreaType: String {
     case red = "Red"
     case green = "Green"
     case blue = "Blue"
@@ -234,12 +305,18 @@ enum IconType: String {
 }
 
 struct StationData: Hashable {
+    var name: String
     var isStarred: Bool
-    var location: String
-    var from: String
-    var stationIcon: IconType
-    var stationCode: String
-    var status: StatusType
+    var message: String
+    var areaType: AreaType
+    var destinations: [Board]
+}
+
+struct Board: Hashable {
+    var fromName: String
+    var toName: String
+    var platfrom: String
+    var icon: IconType
     var trains: [TrainData]
 }
 
@@ -247,6 +324,7 @@ struct TrainData: Hashable {
     var name: String
     var number: String
     var time: String
+    var arrivingIn: String
 }
 
 
