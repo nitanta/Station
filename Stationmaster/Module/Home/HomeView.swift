@@ -38,7 +38,9 @@ struct HomeView: View {
         
     ]
     
+    @StateObject var viewModel = HomeViewModel()
     
+    init() {}
     
     var body: some View {
         NavigationView {
@@ -273,8 +275,6 @@ struct HomeView: View {
             }
         }
     }
-    
-    
 }
 
 extension HomeView {

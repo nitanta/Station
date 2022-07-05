@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		502BCBB12873243E00CA0E54 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 502BCBB02873243E00CA0E54 /* SwiftProtobuf */; };
+		502BCBB32873243E00CA0E54 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 502BCBB22873243E00CA0E54 /* SwiftProtobufPluginLibrary */; };
+		502BCBB52873243E00CA0E54 /* protoc-gen-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 502BCBB42873243E00CA0E54 /* protoc-gen-swift */; };
+		502BCBB8287325BE00CA0E54 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BCBB7287325BE00CA0E54 /* Global.swift */; };
+		502BCBBC287327B700CA0E54 /* gtfs-realtime.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BCBBA287327B700CA0E54 /* gtfs-realtime.pb.swift */; };
+		502BCBBD287327B700CA0E54 /* gtfs-realtime.proto in Sources */ = {isa = PBXBuildFile; fileRef = 502BCBBB287327B700CA0E54 /* gtfs-realtime.proto */; };
+		502BCBBF28732C2A00CA0E54 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BCBBE28732C2A00CA0E54 /* HomeViewModel.swift */; };
+		502BCBC128732C5600CA0E54 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BCBC028732C5600CA0E54 /* AlertView.swift */; };
+		502BCBC428732C9B00CA0E54 /* StringEntension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BCBC328732C9B00CA0E54 /* StringEntension.swift */; };
+		502BCBC828732D6F00CA0E54 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BCBC728732D6F00CA0E54 /* AppError.swift */; };
+		502BCBCA28732DA400CA0E54 /* TrafficDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BCBC928732DA400CA0E54 /* TrafficDataManager.swift */; };
+		50704952287434740067BEDA /* DatasetDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50704951287434740067BEDA /* DatasetDownloadManager.swift */; };
+		50704956287450990067BEDA /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 50704955287450990067BEDA /* ZIPFoundation */; };
 		50AA7184286F583000BEE24A /* StationmasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA7183286F583000BEE24A /* StationmasterApp.swift */; };
 		50AA7186286F583000BEE24A /* TabedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA7185286F583000BEE24A /* TabedView.swift */; };
 		50AA7188286F583200BEE24A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AA7187286F583200BEE24A /* Assets.xcassets */; };
@@ -22,6 +35,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		502BCBB7287325BE00CA0E54 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		502BCBBA287327B700CA0E54 /* gtfs-realtime.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "gtfs-realtime.pb.swift"; sourceTree = "<group>"; };
+		502BCBBB287327B700CA0E54 /* gtfs-realtime.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = "gtfs-realtime.proto"; sourceTree = "<group>"; };
+		502BCBBE28732C2A00CA0E54 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		502BCBC028732C5600CA0E54 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		502BCBC328732C9B00CA0E54 /* StringEntension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEntension.swift; sourceTree = "<group>"; };
+		502BCBC728732D6F00CA0E54 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		502BCBC928732DA400CA0E54 /* TrafficDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficDataManager.swift; sourceTree = "<group>"; };
+		50704951287434740067BEDA /* DatasetDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetDownloadManager.swift; sourceTree = "<group>"; };
+		50704953287449940067BEDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		50AA7180286F583000BEE24A /* Stationmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stationmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AA7183286F583000BEE24A /* StationmasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationmasterApp.swift; sourceTree = "<group>"; };
 		50AA7185286F583000BEE24A /* TabedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabedView.swift; sourceTree = "<group>"; };
@@ -42,12 +65,59 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				502BCBB32873243E00CA0E54 /* SwiftProtobufPluginLibrary in Frameworks */,
+				502BCBB12873243E00CA0E54 /* SwiftProtobuf in Frameworks */,
+				502BCBB52873243E00CA0E54 /* protoc-gen-swift in Frameworks */,
+				50704956287450990067BEDA /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		502BCBB6287325A800CA0E54 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				502BCBB7287325BE00CA0E54 /* Global.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		502BCBB9287327B700CA0E54 /* Protocol buffers */ = {
+			isa = PBXGroup;
+			children = (
+				502BCBBA287327B700CA0E54 /* gtfs-realtime.pb.swift */,
+				502BCBBB287327B700CA0E54 /* gtfs-realtime.proto */,
+			);
+			path = "Protocol buffers";
+			sourceTree = SOURCE_ROOT;
+		};
+		502BCBC228732C8A00CA0E54 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				502BCBC328732C9B00CA0E54 /* StringEntension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		502BCBC528732D5E00CA0E54 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				502BCBC628732D6700CA0E54 /* Model */,
+				502BCBC928732DA400CA0E54 /* TrafficDataManager.swift */,
+				50704951287434740067BEDA /* DatasetDownloadManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		502BCBC628732D6700CA0E54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				502BCBC728732D6F00CA0E54 /* AppError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		50AA7177286F583000BEE24A = {
 			isa = PBXGroup;
 			children = (
@@ -67,7 +137,12 @@
 		50AA7182286F583000BEE24A /* Stationmaster */ = {
 			isa = PBXGroup;
 			children = (
+				50704953287449940067BEDA /* Info.plist */,
+				502BCBC528732D5E00CA0E54 /* Network */,
+				502BCBB9287327B700CA0E54 /* Protocol buffers */,
+				502BCBB6287325A800CA0E54 /* Global */,
 				50AA71A3286F5BD800BEE24A /* Design */,
+				502BCBC228732C8A00CA0E54 /* Helpers */,
 				50AA7191286F599500BEE24A /* Module */,
 				50AA7183286F583000BEE24A /* StationmasterApp.swift */,
 				50AA7187286F583200BEE24A /* Assets.xcassets */,
@@ -110,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				50AA71A1286F5B6000BEE24A /* HomeView.swift */,
+				502BCBBE28732C2A00CA0E54 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -159,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				50CF860E287003D1000B2373 /* Marquee.swift */,
+				502BCBC028732C5600CA0E54 /* AlertView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -179,6 +256,12 @@
 			dependencies = (
 			);
 			name = Stationmaster;
+			packageProductDependencies = (
+				502BCBB02873243E00CA0E54 /* SwiftProtobuf */,
+				502BCBB22873243E00CA0E54 /* SwiftProtobufPluginLibrary */,
+				502BCBB42873243E00CA0E54 /* protoc-gen-swift */,
+				50704955287450990067BEDA /* ZIPFoundation */,
+			);
 			productName = Stationmaster;
 			productReference = 50AA7180286F583000BEE24A /* Stationmaster.app */;
 			productType = "com.apple.product-type.application";
@@ -207,6 +290,10 @@
 				Base,
 			);
 			mainGroup = 50AA7177286F583000BEE24A;
+			packageReferences = (
+				502BCBAF2873243E00CA0E54 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				50704954287450990067BEDA /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+			);
 			productRefGroup = 50AA7181286F583000BEE24A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -237,8 +324,17 @@
 				50AA71A5286F5BE200BEE24A /* AppColor.swift in Sources */,
 				50CF860F287003D1000B2373 /* Marquee.swift in Sources */,
 				50AA71A7286F5C9900BEE24A /* AppFont.swift in Sources */,
+				502BCBC828732D6F00CA0E54 /* AppError.swift in Sources */,
+				502BCBBD287327B700CA0E54 /* gtfs-realtime.proto in Sources */,
+				502BCBC128732C5600CA0E54 /* AlertView.swift in Sources */,
+				50704952287434740067BEDA /* DatasetDownloadManager.swift in Sources */,
 				50AA71A2286F5B6000BEE24A /* HomeView.swift in Sources */,
+				502BCBBC287327B700CA0E54 /* gtfs-realtime.pb.swift in Sources */,
 				50AA719B286F5AE500BEE24A /* ModeView.swift in Sources */,
+				502BCBB8287325BE00CA0E54 /* Global.swift in Sources */,
+				502BCBC428732C9B00CA0E54 /* StringEntension.swift in Sources */,
+				502BCBBF28732C2A00CA0E54 /* HomeViewModel.swift in Sources */,
+				502BCBCA28732DA400CA0E54 /* TrafficDataManager.swift in Sources */,
 				50AA7199286F5AA800BEE24A /* RouteView.swift in Sources */,
 				50AA7184286F583000BEE24A /* StationmasterApp.swift in Sources */,
 				50AA71A0286F5B3600BEE24A /* AboutView.swift in Sources */,
@@ -374,6 +470,8 @@
 				DEVELOPMENT_TEAM = CE53774E6S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Stationmaster/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -404,6 +502,8 @@
 				DEVELOPMENT_TEAM = CE53774E6S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Stationmaster/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -445,6 +545,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		502BCBAF2873243E00CA0E54 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		50704954287450990067BEDA /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		502BCBB02873243E00CA0E54 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 502BCBAF2873243E00CA0E54 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		502BCBB22873243E00CA0E54 /* SwiftProtobufPluginLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 502BCBAF2873243E00CA0E54 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobufPluginLibrary;
+		};
+		502BCBB42873243E00CA0E54 /* protoc-gen-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 502BCBAF2873243E00CA0E54 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = "protoc-gen-swift";
+		};
+		50704955287450990067BEDA /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50704954287450990067BEDA /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 50AA7178286F583000BEE24A /* Project object */;
 }
