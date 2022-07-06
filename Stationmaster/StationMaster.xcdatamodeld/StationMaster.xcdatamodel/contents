@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Agency" representedClassName=".Agency" syncable="YES">
+        <attribute name="agency_fare_url" optional="YES" attributeType="String"/>
+        <attribute name="agency_id" optional="YES" attributeType="String"/>
+        <attribute name="agency_lang" optional="YES" attributeType="String"/>
+        <attribute name="agency_name" optional="YES" attributeType="String"/>
+        <attribute name="agency_timezone" optional="YES" attributeType="String"/>
+        <attribute name="agency_url" optional="YES" attributeType="String"/>
+        <attribute name="updated_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Attributions" representedClassName=".Attributions" syncable="YES">
+        <attribute name="is_operator" optional="YES" attributeType="String"/>
+        <attribute name="organization_name" optional="YES" attributeType="String"/>
+        <attribute name="trip_id" optional="YES" attributeType="String"/>
+        <attribute name="updated_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Calendar" representedClassName=".Calendar" syncable="YES">
+        <attribute name="end_date" optional="YES" attributeType="String"/>
+        <attribute name="friday" optional="YES" attributeType="String"/>
+        <attribute name="monday" optional="YES" attributeType="String"/>
+        <attribute name="saturday" optional="YES" attributeType="String"/>
+        <attribute name="service_id" optional="YES" attributeType="String"/>
+        <attribute name="start_date" optional="YES" attributeType="String"/>
+        <attribute name="sunday" optional="YES" attributeType="String"/>
+        <attribute name="thursday" optional="YES" attributeType="String"/>
+        <attribute name="tuesday" optional="YES" attributeType="String"/>
+        <attribute name="updated_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="wednesday" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Calendardates" representedClassName=".Calendardates" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="exception_type" optional="YES" attributeType="String"/>
+        <attribute name="service_id" optional="YES" attributeType="String"/>
+        <attribute name="updated_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Feedinfo" representedClassName=".Feedinfo" syncable="YES">
+        <attribute name="feed_id" optional="YES" attributeType="String"/>
+        <attribute name="feed_lang" optional="YES" attributeType="String"/>
+        <attribute name="feed_publisher_name" optional="YES" attributeType="String"/>
+        <attribute name="feed_publisher_url" optional="YES" attributeType="String"/>
+        <attribute name="feed_version" optional="YES" attributeType="String"/>
+        <attribute name="updated_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Routes" representedClassName=".Routes" syncable="YES">
+        <attribute name="agency_id" optional="YES" attributeType="String"/>
+        <attribute name="route_desc" optional="YES" attributeType="String"/>
+        <attribute name="route_id" optional="YES" attributeType="String"/>
+        <attribute name="route_long_name" optional="YES" attributeType="String"/>
+        <attribute name="route_short_name" optional="YES" attributeType="String"/>
+        <attribute name="route_type" optional="YES" attributeType="String"/>
+        <attribute name="updated_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Shapes" representedClassName=".Shapes" syncable="YES">
+        <attribute name="shape_dist_traveled" optional="YES" attributeType="String"/>
+        <attribute name="shape_id" optional="YES" attributeType="String"/>
+        <attribute name="shape_pt_lat" optional="YES" attributeType="String"/>
+        <attribute name="shape_pt_lon" optional="YES" attributeType="String"/>
+        <attribute name="shape_pt_sequence" optional="YES" attributeType="String"/>
+        <attribute name="updated_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Stops" representedClassName=".Stops" syncable="YES">
+        <attribute name="location_type" optional="YES" attributeType="String"/>
+        <attribute name="parent_station" optional="YES" attributeType="String"/>
+        <attribute name="platform_code" optional="YES" attributeType="String"/>
+        <attribute name="stop_id" optional="YES" attributeType="String"/>
+        <attribute name="stop_lat" optional="YES" attributeType="String"/>
+        <attribute name="stop_lon" optional="YES" attributeType="String"/>
+        <attribute name="stop_name" optional="YES" attributeType="String"/>
+        <attribute name="updated_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Stoptimes" representedClassName=".Stoptimes" syncable="YES">
+        <attribute name="arrival_time" optional="YES" attributeType="String"/>
+        <attribute name="departure_time" optional="YES" attributeType="String"/>
+        <attribute name="drop_off_type" optional="YES" attributeType="String"/>
+        <attribute name="pickup_type" optional="YES" attributeType="String"/>
+        <attribute name="shape_dist_traveled" optional="YES" attributeType="String"/>
+        <attribute name="stop_headsign" optional="YES" attributeType="String"/>
+        <attribute name="stop_id" optional="YES" attributeType="String"/>
+        <attribute name="stop_sequence" optional="YES" attributeType="String"/>
+        <attribute name="timepoint" optional="YES" attributeType="String"/>
+        <attribute name="trip_id" optional="YES" attributeType="String"/>
+        <attribute name="updated_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Transfers" representedClassName=".Transfers" syncable="YES">
+        <attribute name="from_stop_id" optional="YES" attributeType="String"/>
+        <attribute name="from_trip_id" optional="YES" attributeType="String"/>
+        <attribute name="min_transfer_time" optional="YES" attributeType="String"/>
+        <attribute name="to_stop_id" optional="YES" attributeType="String"/>
+        <attribute name="to_trip_id" optional="YES" attributeType="String"/>
+        <attribute name="transfer_type" optional="YES" attributeType="String"/>
+        <attribute name="updated_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Trips" representedClassName=".Trips" syncable="YES">
+        <attribute name="direction_id" optional="YES" attributeType="String"/>
+        <attribute name="route_id" optional="YES" attributeType="String"/>
+        <attribute name="service_id" optional="YES" attributeType="String"/>
+        <attribute name="shape_id" optional="YES" attributeType="String"/>
+        <attribute name="trip_headsign" optional="YES" attributeType="String"/>
+        <attribute name="trip_id" optional="YES" attributeType="String"/>
+        <attribute name="updated_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="Agency" positionX="-54" positionY="45" width="128" height="134"/>
+        <element name="Attributions" positionX="-45" positionY="54" width="128" height="89"/>
+        <element name="Calendar" positionX="18" positionY="63" width="128" height="194"/>
+        <element name="Calendardates" positionX="-27" positionY="63" width="128" height="89"/>
+        <element name="Feedinfo" positionX="-9" positionY="72" width="128" height="119"/>
+        <element name="Routes" positionX="9" positionY="81" width="128" height="134"/>
+        <element name="Shapes" positionX="45" positionY="99" width="128" height="119"/>
+        <element name="Stops" positionX="27" positionY="90" width="128" height="149"/>
+        <element name="Stoptimes" positionX="0" positionY="45" width="128" height="194"/>
+        <element name="Transfers" positionX="9" positionY="54" width="128" height="134"/>
+        <element name="Trips" positionX="-54" positionY="-9" width="128" height="134"/>
+    </elements>
+</model>

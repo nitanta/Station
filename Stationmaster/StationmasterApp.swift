@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct StationmasterApp: App {
+    let persistenceController = PersistenceController.shared
+    init() {
+       debugPrint("DB path: \(Helpers.getFilePath)")
+    }
+    
     var body: some Scene {
         WindowGroup {
-                TabedView()
+            TabedView()
+                .environment(\.managedObjectContext, persistenceController.managedObjectContext)
         }
     }
 }

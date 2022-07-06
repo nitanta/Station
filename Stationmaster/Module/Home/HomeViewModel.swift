@@ -18,67 +18,11 @@ final class HomeViewModel: ObservableObject {
     @Published var showError: Bool = false
     @Published var isLoading: Bool = false
     
-    let downloadManager = DatasetDownloadManager()
-    let dataManager = TrafficDataManager()
-    
     init() {
-        dataManager.callTripUpdateAPI()
-        dataManager.callServiceAlertsAPI()
-        dataManager.callVehiclePositionsAPI()
-        downloadManager.startDownload()
     }
     
     deinit {
         debugPrint("Deint: \(String(describing: self))")
-    }
-    
-    func callTripUpdateAPI() {
-        let path = Global.baseURL + "/gtfs-rt/\(Global.operatorr)/TripUpdates.pb?key=\(Global.realtimeAPIKey)"
-        
-        let session = URLSession.shared.dataTask(with: URL(string: path)!) { data, response, error in
-            if let error = error {
-                debugPrint("Error", error.localizedDescription)
-            }
-            if let data = data {
-                guard let update = try? TransitRealtime_TripUpdate(serializedData: data) else { return }
-                print("Update", update)
-            }
-        }
-        session.resume()
-    }
-    
-    func callServiceAlertsAPI() {
-        let path = Global.baseURL + "/gtfs-rt/\(Global.operatorr)/ServiceAlerts.pb?key=\(Global.realtimeAPIKey)"
-        
-        let session = URLSession.shared.dataTask(with: URL(string: path)!) { data, response, error in
-            if let error = error {
-                debugPrint("Error", error.localizedDescription)
-            }
-            if let data = data {
-                guard let alert = try? TransitRealtime_Alert(serializedData: data) else { return }
-                print("Data", alert)
-            }
-        }
-        session.resume()
-    }
-    
-    func callVehiclePositionsAPI() {
-        let path = Global.baseURL + "/gtfs-rt/\(Global.operatorr)/VehiclePositions.pb?key=\(Global.realtimeAPIKey)"
-        
-        let session = URLSession.shared.dataTask(with: URL(string: path)!) { data, response, error in
-            if let error = error {
-                debugPrint("Error", error.localizedDescription)
-                self.error = AppAlert(type: .error(error), actions: [
-                    AlertAction(action: nil, title: Constants.ok)
-                ])
-                self.showError = true
-            }
-            if let data = data {
-                guard let vehicle = try? TransitRealtime_VehiclePosition(serializedData: data) else { return }
-                print("Data", vehicle)
-            }
-        }
-        session.resume()
     }
 }
 

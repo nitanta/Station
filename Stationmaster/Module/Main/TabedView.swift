@@ -8,7 +8,22 @@
 import SwiftUI
 
 struct TabedView: View {
+    
+    @StateObject var viewModel = TabedViewModel()
+    
+    init() {}
+    
     var body: some View {
+        if viewModel.isLoading {
+            ProgressView()
+                .progressViewStyle(.circular)
+                .tint(AppColor.Components.TabBar.tint)
+        } else {
+            tabs
+        }
+    }
+    
+    var tabs: some View {
         TabView {
             HomeView()
                 .tabItem {

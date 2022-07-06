@@ -9,11 +9,11 @@ import Foundation
 import ZIPFoundation
 import os.log
 
-class DatasetDownloadManager {
-    let logger = Logger(subsystem: "StationMaster", category: "main")
+class DatasetDownloadManager: LoggableManager {
     let fileName = "TrafficDataset"
     let cacheName = "DownloadCache"
     let flightPlanURL = URL(string: Global.baseURL + "/gtfs/\(Global.operatorr)/\(Global.operatorr).zip?key=\(Global.staticAPIKey)")!
+
 
     lazy var cache: URLCache = {
         let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
@@ -28,8 +28,10 @@ class DatasetDownloadManager {
         config.urlCache = cache
         return URLSession(configuration: config)
     }()
-
-    init() {}
+    
+    override init() {
+        super.init()
+    }
     
     func startDownload(completion: ((Result<URL, Error>) -> ())? = nil) {
         downloadFile(remoteURL: flightPlanURL, completion: completion)
@@ -62,10 +64,12 @@ class DatasetDownloadManager {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         guard let documentsDirectory = paths.first, let documentURL = URL(string: documentsDirectory) else { return nil }
         let zipPath = documentURL.appendingPathComponent(self.fileName + ".zip")
-        let dataPath = documentURL.appendingPathComponent(self.fileName)
+        let dataPath = documentURL
         do {
-            let finalURL = try FileManager.default.replaceItemAt(zipPath, withItemAt: tempURL)
-            return dataPath
+            if let finalURL = try FileManager.default.replaceItemAt(zipPath, withItemAt: tempURL) {
+                try FileManager.default.unzipItem(at: zipPath, to: dataPath)
+                return dataPath
+            }
         } catch {
             logger.info("\(error.localizedDescription)")
         }

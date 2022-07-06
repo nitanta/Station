@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500C37E128747AF700D6F3CD /* StationMaster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 500C37DF28747AF700D6F3CD /* StationMaster.xcdatamodeld */; };
+		500C37E528747C5400D6F3CD /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C37E428747C5400D6F3CD /* Trips.swift */; };
+		500C37E728747CEC00D6F3CD /* DatabaseManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C37E628747CEC00D6F3CD /* DatabaseManageable.swift */; };
+		500C37E928747DC400D6F3CD /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C37E828747DC400D6F3CD /* PersistenceController.swift */; };
+		500C37EB28747DF400D6F3CD /* MockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C37EA28747DF400D6F3CD /* MockHelper.swift */; };
+		500C37F02874A43100D6F3CD /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C37EF2874A43100D6F3CD /* Helper.swift */; };
 		502BCBB12873243E00CA0E54 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 502BCBB02873243E00CA0E54 /* SwiftProtobuf */; };
 		502BCBB32873243E00CA0E54 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 502BCBB22873243E00CA0E54 /* SwiftProtobufPluginLibrary */; };
 		502BCBB52873243E00CA0E54 /* protoc-gen-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 502BCBB42873243E00CA0E54 /* protoc-gen-swift */; };
@@ -18,6 +24,19 @@
 		502BCBC428732C9B00CA0E54 /* StringEntension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BCBC328732C9B00CA0E54 /* StringEntension.swift */; };
 		502BCBC828732D6F00CA0E54 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BCBC728732D6F00CA0E54 /* AppError.swift */; };
 		502BCBCA28732DA400CA0E54 /* TrafficDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BCBC928732DA400CA0E54 /* TrafficDataManager.swift */; };
+		5069BC532875C693002BDB94 /* TabedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5069BC522875C693002BDB94 /* TabedViewModel.swift */; };
+		5069BC5F2875C7E3002BDB94 /* routes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5069BC542875C7DE002BDB94 /* routes.txt */; };
+		5069BC602875C7E3002BDB94 /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5069BC552875C7DE002BDB94 /* stops.txt */; };
+		5069BC612875C7E3002BDB94 /* feed_info.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5069BC562875C7DE002BDB94 /* feed_info.txt */; };
+		5069BC622875C7E3002BDB94 /*  trips.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5069BC572875C7DE002BDB94 /*  trips.txt */; };
+		5069BC632875C7E3002BDB94 /* attributions.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5069BC582875C7DE002BDB94 /* attributions.txt */; };
+		5069BC642875C7E3002BDB94 /* agency.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5069BC592875C7DE002BDB94 /* agency.txt */; };
+		5069BC652875C7E3002BDB94 /* calendar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5069BC5A2875C7DE002BDB94 /* calendar.txt */; };
+		5069BC662875C7E3002BDB94 /* shapes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5069BC5B2875C7E0002BDB94 /* shapes.txt */; };
+		5069BC672875C7E3002BDB94 /* transfers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5069BC5C2875C7E1002BDB94 /* transfers.txt */; };
+		5069BC682875C7E3002BDB94 /* stop_times.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5069BC5D2875C7E3002BDB94 /* stop_times.txt */; };
+		5069BC692875C7E3002BDB94 /* calendar_dates.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5069BC5E2875C7E3002BDB94 /* calendar_dates.txt */; };
+		5069BC6B2875CB0C002BDB94 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5069BC6A2875CB0C002BDB94 /* UserDefaultsKey.swift */; };
 		50704952287434740067BEDA /* DatasetDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50704951287434740067BEDA /* DatasetDownloadManager.swift */; };
 		50704956287450990067BEDA /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 50704955287450990067BEDA /* ZIPFoundation */; };
 		50AA7184286F583000BEE24A /* StationmasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA7183286F583000BEE24A /* StationmasterApp.swift */; };
@@ -32,9 +51,27 @@
 		50AA71A5286F5BE200BEE24A /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA71A4286F5BE200BEE24A /* AppColor.swift */; };
 		50AA71A7286F5C9900BEE24A /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA71A6286F5C9900BEE24A /* AppFont.swift */; };
 		50CF860F287003D1000B2373 /* Marquee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF860E287003D1000B2373 /* Marquee.swift */; };
+		50FBF2FC28759D4F0018C077 /* DatasetAdderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF2FB28759D4F0018C077 /* DatasetAdderManager.swift */; };
+		50FBF2FE2875A54F0018C077 /* Agency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF2FD2875A54F0018C077 /* Agency.swift */; };
+		50FBF3002875A5590018C077 /* Attributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF2FF2875A5590018C077 /* Attributions.swift */; };
+		50FBF3022875A5630018C077 /* Calendardates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF3012875A5630018C077 /* Calendardates.swift */; };
+		50FBF3042875A56B0018C077 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF3032875A56B0018C077 /* Calendar.swift */; };
+		50FBF3062875A5890018C077 /* Feedinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF3052875A5890018C077 /* Feedinfo.swift */; };
+		50FBF3082875A5910018C077 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF3072875A5910018C077 /* Routes.swift */; };
+		50FBF30A2875A5970018C077 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF3092875A5970018C077 /* Shapes.swift */; };
+		50FBF30C2875A59F0018C077 /* Stoptimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF30B2875A59F0018C077 /* Stoptimes.swift */; };
+		50FBF30E2875A5A90018C077 /* Stops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF30D2875A5A90018C077 /* Stops.swift */; };
+		50FBF3102875A5B30018C077 /* Transfers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF30F2875A5B30018C077 /* Transfers.swift */; };
+		50FBF3122875B21B0018C077 /* DatasetCleanerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBF3112875B21B0018C077 /* DatasetCleanerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		500C37E028747AF700D6F3CD /* StationMaster.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StationMaster.xcdatamodel; sourceTree = "<group>"; };
+		500C37E428747C5400D6F3CD /* Trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
+		500C37E628747CEC00D6F3CD /* DatabaseManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManageable.swift; sourceTree = "<group>"; };
+		500C37E828747DC400D6F3CD /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		500C37EA28747DF400D6F3CD /* MockHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHelper.swift; sourceTree = "<group>"; };
+		500C37EF2874A43100D6F3CD /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		502BCBB7287325BE00CA0E54 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		502BCBBA287327B700CA0E54 /* gtfs-realtime.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "gtfs-realtime.pb.swift"; sourceTree = "<group>"; };
 		502BCBBB287327B700CA0E54 /* gtfs-realtime.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = "gtfs-realtime.proto"; sourceTree = "<group>"; };
@@ -43,6 +80,19 @@
 		502BCBC328732C9B00CA0E54 /* StringEntension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEntension.swift; sourceTree = "<group>"; };
 		502BCBC728732D6F00CA0E54 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		502BCBC928732DA400CA0E54 /* TrafficDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficDataManager.swift; sourceTree = "<group>"; };
+		5069BC522875C693002BDB94 /* TabedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabedViewModel.swift; sourceTree = "<group>"; };
+		5069BC542875C7DE002BDB94 /* routes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = routes.txt; sourceTree = "<group>"; };
+		5069BC552875C7DE002BDB94 /* stops.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stops.txt; sourceTree = "<group>"; };
+		5069BC562875C7DE002BDB94 /* feed_info.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feed_info.txt; sourceTree = "<group>"; };
+		5069BC572875C7DE002BDB94 /*  trips.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = " trips.txt"; sourceTree = "<group>"; };
+		5069BC582875C7DE002BDB94 /* attributions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = attributions.txt; sourceTree = "<group>"; };
+		5069BC592875C7DE002BDB94 /* agency.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = agency.txt; sourceTree = "<group>"; };
+		5069BC5A2875C7DE002BDB94 /* calendar.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calendar.txt; sourceTree = "<group>"; };
+		5069BC5B2875C7E0002BDB94 /* shapes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shapes.txt; sourceTree = "<group>"; };
+		5069BC5C2875C7E1002BDB94 /* transfers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = transfers.txt; sourceTree = "<group>"; };
+		5069BC5D2875C7E3002BDB94 /* stop_times.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stop_times.txt; sourceTree = "<group>"; };
+		5069BC5E2875C7E3002BDB94 /* calendar_dates.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calendar_dates.txt; sourceTree = "<group>"; };
+		5069BC6A2875CB0C002BDB94 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		50704951287434740067BEDA /* DatasetDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetDownloadManager.swift; sourceTree = "<group>"; };
 		50704953287449940067BEDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		50AA7180286F583000BEE24A /* Stationmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stationmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +108,18 @@
 		50AA71A4286F5BE200BEE24A /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		50AA71A6286F5C9900BEE24A /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		50CF860E287003D1000B2373 /* Marquee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marquee.swift; sourceTree = "<group>"; };
+		50FBF2FB28759D4F0018C077 /* DatasetAdderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetAdderManager.swift; sourceTree = "<group>"; };
+		50FBF2FD2875A54F0018C077 /* Agency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agency.swift; sourceTree = "<group>"; };
+		50FBF2FF2875A5590018C077 /* Attributions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributions.swift; sourceTree = "<group>"; };
+		50FBF3012875A5630018C077 /* Calendardates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendardates.swift; sourceTree = "<group>"; };
+		50FBF3032875A56B0018C077 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		50FBF3052875A5890018C077 /* Feedinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedinfo.swift; sourceTree = "<group>"; };
+		50FBF3072875A5910018C077 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		50FBF3092875A5970018C077 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		50FBF30B2875A59F0018C077 /* Stoptimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stoptimes.swift; sourceTree = "<group>"; };
+		50FBF30D2875A5A90018C077 /* Stops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stops.swift; sourceTree = "<group>"; };
+		50FBF30F2875A5B30018C077 /* Transfers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfers.swift; sourceTree = "<group>"; };
+		50FBF3112875B21B0018C077 /* DatasetCleanerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetCleanerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +137,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		500C37E228747C3B00D6F3CD /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				50FBF2E428759BAE0018C077 /* SL */,
+				500C37E328747C4500D6F3CD /* Models */,
+				500C37E628747CEC00D6F3CD /* DatabaseManageable.swift */,
+				500C37E828747DC400D6F3CD /* PersistenceController.swift */,
+				500C37EA28747DF400D6F3CD /* MockHelper.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		500C37E328747C4500D6F3CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				500C37E428747C5400D6F3CD /* Trips.swift */,
+				50FBF2FD2875A54F0018C077 /* Agency.swift */,
+				50FBF2FF2875A5590018C077 /* Attributions.swift */,
+				50FBF3012875A5630018C077 /* Calendardates.swift */,
+				50FBF3032875A56B0018C077 /* Calendar.swift */,
+				50FBF3052875A5890018C077 /* Feedinfo.swift */,
+				50FBF3072875A5910018C077 /* Routes.swift */,
+				50FBF3092875A5970018C077 /* Shapes.swift */,
+				50FBF30B2875A59F0018C077 /* Stoptimes.swift */,
+				50FBF30D2875A5A90018C077 /* Stops.swift */,
+				50FBF30F2875A5B30018C077 /* Transfers.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		502BCBB6287325A800CA0E54 /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				502BCBC328732C9B00CA0E54 /* StringEntension.swift */,
+				500C37EF2874A43100D6F3CD /* Helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -106,6 +199,9 @@
 				502BCBC628732D6700CA0E54 /* Model */,
 				502BCBC928732DA400CA0E54 /* TrafficDataManager.swift */,
 				50704951287434740067BEDA /* DatasetDownloadManager.swift */,
+				50FBF2FB28759D4F0018C077 /* DatasetAdderManager.swift */,
+				50FBF3112875B21B0018C077 /* DatasetCleanerManager.swift */,
+				5069BC6A2875CB0C002BDB94 /* UserDefaultsKey.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -138,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				50704953287449940067BEDA /* Info.plist */,
+				500C37E228747C3B00D6F3CD /* Database */,
 				502BCBC528732D5E00CA0E54 /* Network */,
 				502BCBB9287327B700CA0E54 /* Protocol buffers */,
 				502BCBB6287325A800CA0E54 /* Global */,
@@ -147,6 +244,7 @@
 				50AA7183286F583000BEE24A /* StationmasterApp.swift */,
 				50AA7187286F583200BEE24A /* Assets.xcassets */,
 				50AA7189286F583200BEE24A /* Preview Content */,
+				500C37DF28747AF700D6F3CD /* StationMaster.xcdatamodeld */,
 			);
 			path = Stationmaster;
 			sourceTree = "<group>";
@@ -177,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				50AA7185286F583000BEE24A /* TabedView.swift */,
+				5069BC522875C693002BDB94 /* TabedViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -238,6 +337,24 @@
 				502BCBC028732C5600CA0E54 /* AlertView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		50FBF2E428759BAE0018C077 /* SL */ = {
+			isa = PBXGroup;
+			children = (
+				5069BC572875C7DE002BDB94 /*  trips.txt */,
+				5069BC592875C7DE002BDB94 /* agency.txt */,
+				5069BC582875C7DE002BDB94 /* attributions.txt */,
+				5069BC5E2875C7E3002BDB94 /* calendar_dates.txt */,
+				5069BC5A2875C7DE002BDB94 /* calendar.txt */,
+				5069BC562875C7DE002BDB94 /* feed_info.txt */,
+				5069BC542875C7DE002BDB94 /* routes.txt */,
+				5069BC5B2875C7E0002BDB94 /* shapes.txt */,
+				5069BC5D2875C7E3002BDB94 /* stop_times.txt */,
+				5069BC552875C7DE002BDB94 /* stops.txt */,
+				5069BC5C2875C7E1002BDB94 /* transfers.txt */,
+			);
+			path = SL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,8 +425,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5069BC662875C7E3002BDB94 /* shapes.txt in Resources */,
+				5069BC622875C7E3002BDB94 /*  trips.txt in Resources */,
+				5069BC612875C7E3002BDB94 /* feed_info.txt in Resources */,
+				5069BC602875C7E3002BDB94 /* stops.txt in Resources */,
+				5069BC672875C7E3002BDB94 /* transfers.txt in Resources */,
+				5069BC632875C7E3002BDB94 /* attributions.txt in Resources */,
 				50AA718B286F583200BEE24A /* Preview Assets.xcassets in Resources */,
 				50AA7188286F583200BEE24A /* Assets.xcassets in Resources */,
+				5069BC652875C7E3002BDB94 /* calendar.txt in Resources */,
+				5069BC5F2875C7E3002BDB94 /* routes.txt in Resources */,
+				5069BC642875C7E3002BDB94 /* agency.txt in Resources */,
+				5069BC682875C7E3002BDB94 /* stop_times.txt in Resources */,
+				5069BC692875C7E3002BDB94 /* calendar_dates.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,24 +449,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				50AA7186286F583000BEE24A /* TabedView.swift in Sources */,
+				50FBF3122875B21B0018C077 /* DatasetCleanerManager.swift in Sources */,
+				50FBF2FE2875A54F0018C077 /* Agency.swift in Sources */,
+				50FBF2FC28759D4F0018C077 /* DatasetAdderManager.swift in Sources */,
+				500C37E928747DC400D6F3CD /* PersistenceController.swift in Sources */,
 				50AA71A5286F5BE200BEE24A /* AppColor.swift in Sources */,
 				50CF860F287003D1000B2373 /* Marquee.swift in Sources */,
 				50AA71A7286F5C9900BEE24A /* AppFont.swift in Sources */,
+				500C37E128747AF700D6F3CD /* StationMaster.xcdatamodeld in Sources */,
+				5069BC532875C693002BDB94 /* TabedViewModel.swift in Sources */,
+				50FBF30A2875A5970018C077 /* Shapes.swift in Sources */,
 				502BCBC828732D6F00CA0E54 /* AppError.swift in Sources */,
+				50FBF3082875A5910018C077 /* Routes.swift in Sources */,
 				502BCBBD287327B700CA0E54 /* gtfs-realtime.proto in Sources */,
 				502BCBC128732C5600CA0E54 /* AlertView.swift in Sources */,
+				5069BC6B2875CB0C002BDB94 /* UserDefaultsKey.swift in Sources */,
 				50704952287434740067BEDA /* DatasetDownloadManager.swift in Sources */,
 				50AA71A2286F5B6000BEE24A /* HomeView.swift in Sources */,
+				50FBF3002875A5590018C077 /* Attributions.swift in Sources */,
 				502BCBBC287327B700CA0E54 /* gtfs-realtime.pb.swift in Sources */,
 				50AA719B286F5AE500BEE24A /* ModeView.swift in Sources */,
+				50FBF3102875A5B30018C077 /* Transfers.swift in Sources */,
+				500C37E528747C5400D6F3CD /* Trips.swift in Sources */,
+				500C37E728747CEC00D6F3CD /* DatabaseManageable.swift in Sources */,
 				502BCBB8287325BE00CA0E54 /* Global.swift in Sources */,
+				50FBF3042875A56B0018C077 /* Calendar.swift in Sources */,
 				502BCBC428732C9B00CA0E54 /* StringEntension.swift in Sources */,
 				502BCBBF28732C2A00CA0E54 /* HomeViewModel.swift in Sources */,
 				502BCBCA28732DA400CA0E54 /* TrafficDataManager.swift in Sources */,
 				50AA7199286F5AA800BEE24A /* RouteView.swift in Sources */,
+				50FBF30C2875A59F0018C077 /* Stoptimes.swift in Sources */,
+				50FBF3022875A5630018C077 /* Calendardates.swift in Sources */,
 				50AA7184286F583000BEE24A /* StationmasterApp.swift in Sources */,
+				50FBF30E2875A5A90018C077 /* Stops.swift in Sources */,
+				500C37EB28747DF400D6F3CD /* MockHelper.swift in Sources */,
+				500C37F02874A43100D6F3CD /* Helper.swift in Sources */,
 				50AA71A0286F5B3600BEE24A /* AboutView.swift in Sources */,
 				50AA719D286F5B1600BEE24A /* CardView.swift in Sources */,
+				50FBF3062875A5890018C077 /* Feedinfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +735,19 @@
 			productName = ZIPFoundation;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		500C37DF28747AF700D6F3CD /* StationMaster.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				500C37E028747AF700D6F3CD /* StationMaster.xcdatamodel */,
+			);
+			currentVersion = 500C37E028747AF700D6F3CD /* StationMaster.xcdatamodel */;
+			path = StationMaster.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 50AA7178286F583000BEE24A /* Project object */;
 }
