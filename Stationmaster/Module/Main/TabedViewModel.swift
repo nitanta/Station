@@ -33,7 +33,7 @@ final class TabedViewModel: ObservableObject {
         
         let lastFetchDate = UserDefaults.standard.value(forKey: UserDefaultsKey.datefetchdate) as? Date
         
-        if let fetchDate = lastFetchDate, fetchDate <  cleanupDate {
+        if true {
             updateDataset(checkDate: cleanupDate)
         } else if lastFetchDate == nil {
             addDataset()

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class DatasetAdderManager: LoggableManager {
     
@@ -14,44 +15,51 @@ class DatasetAdderManager: LoggableManager {
     }
     
     func addDataset(completion: (() -> ())? = nil) {
-        let types = DatasetType.allCases
+        let context = persistenceController.backgroundContet
         
-        types.forEach { type in
-            switch type {
-            case .trips:
-                parseFileNamesAndUpdate([Trips].self, fileName: type.rawValue)
-            case .transfer:
-                parseFileNamesAndUpdate([Transfers].self, fileName: type.rawValue)
-            case .stops:
-                parseFileNamesAndUpdate([Stops].self, fileName: type.rawValue)
-            case .stopstimes:
-                parseFileNamesAndUpdate([Stoptimes].self, fileName: type.rawValue)
-            case .shapes:
-                parseFileNamesAndUpdate([Shapes].self, fileName: type.rawValue)
-            case .routes:
-                parseFileNamesAndUpdate([Routes].self, fileName: type.rawValue)
-            case .feedinfo:
-                parseFileNamesAndUpdate([Feedinfo].self, fileName: type.rawValue)
-            case .calendar:
-                parseFileNamesAndUpdate([Calendar].self, fileName: type.rawValue)
-            case .calendardates:
-                parseFileNamesAndUpdate([Calendardates].self, fileName: type.rawValue)
-            case .attributions:
-                parseFileNamesAndUpdate([Attributions].self, fileName: type.rawValue)
-            case .agency:
-                parseFileNamesAndUpdate([Agency].self, fileName: type.rawValue)
+        context.perform { [weak self, weak context] in
+            guard let self = self, let context = context else { return }
+            
+            let types = DatasetType.allCases
+            
+            types.forEach { type in
+                switch type {
+                case .trips:
+                    self.parseFileNamesAndUpdate([Trips].self, context: context, fileName: type.rawValue)
+                case .transfer:
+                    self.parseFileNamesAndUpdate([Transfers].self, context: context, fileName: type.rawValue)
+                case .stops:
+                    self.parseFileNamesAndUpdate([Stops].self, context: context, fileName: type.rawValue)
+                case .stopstimes:
+                    self.parseFileNamesAndUpdate([Stoptimes].self, context: context, fileName: type.rawValue)
+                case .shapes:
+                    self.parseFileNamesAndUpdate([Shapes].self, context: context, fileName: type.rawValue)
+                case .routes:
+                    self.parseFileNamesAndUpdate([Routes].self, context: context, fileName: type.rawValue)
+                case .feedinfo:
+                    self.parseFileNamesAndUpdate([Feedinfo].self, context: context, fileName: type.rawValue)
+                case .calendar:
+                    self.parseFileNamesAndUpdate([Calendar].self, context: context, fileName: type.rawValue)
+                case .calendardates:
+                    self.parseFileNamesAndUpdate([Calendardates].self, context: context, fileName: type.rawValue)
+                case .attributions:
+                    self.parseFileNamesAndUpdate([Attributions].self, context: context, fileName: type.rawValue)
+                case .agency:
+                    self.parseFileNamesAndUpdate([Agency].self, context: context, fileName: type.rawValue)
+                }
             }
+            
+            try? context.save()
+            
+            completion?()
         }
-        
-        persistenceController.saveContext()
-        completion?()
     }
     
 }
 
 extension DatasetAdderManager {
     
-    private func parseFileNamesAndUpdate<T: Decodable >(_ type: T.Type, fileName: String) {
+    private func parseFileNamesAndUpdate<T: Decodable >(_ type: T.Type, context: NSManagedObjectContext, fileName: String) {
         guard let data = readDataFromCSV(fileName: fileName, fileType: "txt") else { return }
         let cleaned = cleanRows(file: data)
         let csvRows = csv(data: cleaned)
@@ -66,6 +74,7 @@ extension DatasetAdderManager {
         guard let data = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted) else { return }
         
         let decoder = JSONDecoder()
+        decoder.userInfo[CodingUserInfoKey.context!] = context
         let _ = try? decoder.decode(T.self, from: data)
     }
     

@@ -23,47 +23,55 @@ class DatasetCleanerManager: LoggableManager {
     }
     
     func cleanDataset(before: Date, completion: (() -> ())? = nil) {
+        let context = persistenceController.backgroundContet
         
-        let datatypes = DatasetType.allCases
-        
-        datatypes.forEach { type in
-            let predicate = NSPredicate(format: "updated_date <= %@", before as CVarArg)
-            switch type {
-            case .trips:
-                delete(Trips.self, predicate: predicate)
-            case .transfer:
-                delete(Transfers.self, predicate: predicate)
-            case .stops:
-                delete(Stops.self, predicate: predicate)
-            case .stopstimes:
-                delete(Stoptimes.self, predicate: predicate)
-            case .shapes:
-                delete(Shapes.self, predicate: predicate)
-            case .routes:
-                delete(Routes.self, predicate: predicate)
-            case .feedinfo:
-                delete(Feedinfo.self, predicate: predicate)
-            case .calendar:
-                delete(Calendar.self, predicate: predicate)
-            case .calendardates:
-                delete(Calendardates.self, predicate: predicate)
-            case .attributions:
-                delete(Attributions.self, predicate: predicate)
-            case .agency:
-                delete(Agency.self, predicate: predicate)
+        context.perform { [weak self, weak context] in
+            guard let self = self, let context = context else { return }
+            
+            let types = DatasetType.allCases
+            
+            types.forEach { type in
+                let predicate = NSPredicate(format: "updated_date <= %@", before as CVarArg)
+                switch type {
+                case .trips:
+                    self.delete(Trips.self, context: context, predicate: predicate)
+                case .transfer:
+                    self.delete(Transfers.self, context: context, predicate: predicate)
+                case .stops:
+                    self.delete(Stops.self, context: context, predicate: predicate)
+                case .stopstimes:
+                    self.delete(Stoptimes.self, context: context, predicate: predicate)
+                case .shapes:
+                    self.delete(Shapes.self, context: context, predicate: predicate)
+                case .routes:
+                    self.delete(Routes.self, context: context, predicate: predicate)
+                case .feedinfo:
+                    self.delete(Feedinfo.self, context: context, predicate: predicate)
+                case .calendar:
+                    self.delete(Calendar.self, context: context, predicate: predicate)
+                case .calendardates:
+                    self.delete(Calendardates.self, context: context, predicate: predicate)
+                case .attributions:
+                    self.delete(Attributions.self, context: context, predicate: predicate)
+                case .agency:
+                    self.delete(Agency.self, context: context, predicate: predicate)
+                }
             }
+            
+            try? context.save()
+            
+            completion?()
         }
-        completion?()
     }
     
-    private func delete<T: NSManagedObject >(_ type: T.Type, predicate: NSPredicate?) {
+    
+    private func delete<T: NSManagedObject >(_ type: T.Type, context: NSManagedObjectContext, predicate: NSPredicate?) {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: String(describing: type))
         fetchRequest.predicate = predicate
         
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         deleteRequest.resultType = .resultTypeObjectIDs
 
-        let context = persistenceController.managedObjectContext
         let batchDelete = try? context.execute(deleteRequest) as? NSBatchDeleteResult
 
         guard let deleteResult = batchDelete?.result as? [NSManagedObjectID] else { return }

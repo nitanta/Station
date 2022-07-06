@@ -23,18 +23,18 @@ struct HomeView: View {
             ])
         ]),
         
-        StationData(name: "Stureby", isStarred: true, message: "Lift is not working nicely", areaType: .green, destinations: [
-            Board(fromName: "Hagsätra", toName: "T-Centralen - Hässelby strand", platfrom: "1", icon: .camera, trains: [
-                TrainData(name: "Hässelby strand", number: "19", time: "12:30 PM", arrivingIn: "10 mins"),
-                TrainData(name: "Hässelby strand", number: "19", time: "12:40 PM", arrivingIn: "20 mins"),
-                TrainData(name: "Hässelby strand", number: "19", time: "12:50 PM", arrivingIn: "30 mins")
-            ]),
-            Board(fromName: "T-Centralen - Hässelby strand", toName: "Hagsätra", platfrom: "2", icon: .camera, trains: [
-                TrainData(name: "Hagsätra", number: "19", time: "12:35 PM", arrivingIn: "15 mins"),
-                TrainData(name: "Hagsätra", number: "19", time: "12:45 PM", arrivingIn: "25 mins"),
-                TrainData(name: "Hagsätra", number: "19", time: "12:55 PM", arrivingIn: "35 mins")
-            ])
-        ])
+//        StationData(name: "Stureby", isStarred: true, message: "Lift is not working nicely", areaType: .green, destinations: [
+//            Board(fromName: "Hagsätra", toName: "T-Centralen - Hässelby strand", platfrom: "1", icon: .camera, trains: [
+//                TrainData(name: "Hässelby strand", number: "19", time: "12:30 PM", arrivingIn: "10 mins"),
+//                TrainData(name: "Hässelby strand", number: "19", time: "12:40 PM", arrivingIn: "20 mins"),
+//                TrainData(name: "Hässelby strand", number: "19", time: "12:50 PM", arrivingIn: "30 mins")
+//            ]),
+//            Board(fromName: "T-Centralen - Hässelby strand", toName: "Hagsätra", platfrom: "2", icon: .camera, trains: [
+//                TrainData(name: "Hagsätra", number: "19", time: "12:35 PM", arrivingIn: "15 mins"),
+//                TrainData(name: "Hagsätra", number: "19", time: "12:45 PM", arrivingIn: "25 mins"),
+//                TrainData(name: "Hagsätra", number: "19", time: "12:55 PM", arrivingIn: "35 mins")
+//            ])
+//        ])
         
     ]
     

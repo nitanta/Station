@@ -27,7 +27,9 @@ class Trips: NSManagedObject, DatabaseManageable, Decodable {
     @NSManaged var updated_date: Date?
     
     required convenience public init(from decoder: Decoder) throws {
-        let context = PersistenceController.shared.managedObjectContext
+        guard let context = decoder.userInfo[CodingUserInfoKey.context!] as? NSManagedObjectContext else {
+            fatalError("Decode failure")
+        }
         guard  let entity = NSEntityDescription.entity(forEntityName: "Trips", in: context) else {
             fatalError("Decode failure")
         }

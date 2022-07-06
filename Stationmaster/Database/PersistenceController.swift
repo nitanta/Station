@@ -28,6 +28,10 @@ class PersistenceController {
         return persistentContainer.viewContext
     }
     
+    var backgroundContet: NSManagedObjectContext {
+        return persistentContainer.newBackgroundContext()
+    }
+    
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         let container = NSPersistentCloudKitContainer(name: "StationMaster")
         container.viewContext.automaticallyMergesChangesFromParent = true
